@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Login Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h2>Sign in</h2>
+    <p>Please enter your Email and Password</p>
+
+    <label>Username:</label><br>
+    <input type="text" name="username"><br><br>
+
+    <label>Create Password:</label><br>
+    <input type="password" name="password"><br><br>
+
+    <label>Confirm Password:</label><br>
+    <input type="password" name="confirm_password"><br><br>
+
+    <a href="/">
+        <button type="submit" name="submit">Sign in</button>
+    </a>
+</div>
+{% endblock %}
