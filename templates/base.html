@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title> Cartify </title>
+    <meta charset="UTF-8">
 
     {% block head %}{% endblock %}
-    <meta charset="UTF-8">
-    <title> Cartify </title>
+    
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -17,16 +19,16 @@
 
 
         <header>
-            <div class="header_container">
-            <img   src="{{ url_for('static', filename='image/logo2.png') }}"  alt="Logo" class="Logo" width="auto" height="60">
+            <div class="header_container"><button style="background-color: #ff9800; border: none; cursor: pointer;"><a href="/">
+            <img   src="{{ url_for('static', filename='image/logo2.png') }}"  alt="Logo" class="Logo" width="auto" height="60"></a></button>
             <h1 style="margin-left: 15px;"> </h1>
             <nav role="navigation">
                 <ul>
                     <li><a href="/"><i class="fa-solid fa-magnifying-glass"></i></a></li>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
-                    <li><a href="{{ url_for('cart') }}"><i class="fas fa-shopping-cart"></i></a></li>
+                    <li><a href="{{ url_for('product_controller.about') }}">About</a></li>
+                    <li><a href="{{ url_for('product_controller.login') }}">Account</a></li>
+                    <li><a href="{{ url_for('product_controller.cart') }}"><i class="fas fa-shopping-cart"></i></a></li>
                 </ul> 
             </nav>
             </div>
@@ -38,12 +40,6 @@
         {% block content %}
         
         {% endblock %}
-    </main>
-   
-    
-    <main>
-        
-        
     </main>
 
     <footer>
