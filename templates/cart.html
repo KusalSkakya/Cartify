@@ -5,6 +5,43 @@
 {% endblock %} 
 
 {% block content %}
-<h1>CART MANAGEMENT</h1>
+<main class="cart-container">
+        {% if cart_items %}
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>${{ item.price }}</td>
+                        <td>
+                            <input type="number" value="{{ item.quantity }}" min="1">
+                        </td>
+                        <td>${{ item.price * item.quantity }}</td>
+                        <td>
+                            <button class="remove-btn">❌</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="cart-summary">
+                <h2>Cart Summary</h2>
+                <p><strong>Total:</strong> ${{ total }}</p>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        {% else %}
+            <p>Your cart is empty.</p>
+        {% endif %}
+    </main>
 
 {% endblock %}  
