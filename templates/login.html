@@ -6,21 +6,20 @@
 {% endblock %}
 
 {% block content %}
-<div class="login-container">
-    <h2>Sign in</h2>
-    <p>Please enter your Email and Password</p>
+        <div class="login-container">
+            <h2>Login in</h2>
+            <p>Please enter your Email and Password</p>
 
-    <label>Username:</label><br>
-    <input type="text" name="username"><br><br>
+            <label>Username:</label><br>
+            <input type="text" name="username"><br><br>
 
-    <label>Create Password:</label><br>
-    <input type="password" name="password"><br><br>
+            <label>Password:</label><br>
+            <input type="password" name="password"><br><br>
 
-    <label>Confirm Password:</label><br>
-    <input type="password" name="confirm_password"><br><br>
-
-    <a href="/">
-        <button type="submit" name="submit">Sign in</button>
-    </a>
-</div>
+            <a href="/">
+                <button type="submit" name="submit">Log in</button>
+            </a>
+            <p>Don't have an account? click here</p>
+            <a href="{{ url_for('product_controller.signin') }}"><h4>Sign in</h4></a>
+        </div>
 {% endblock %}
