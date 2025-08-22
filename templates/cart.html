@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Cart</title>
+{% endblock %}
+
+{% block content %}
+<div id="cartItems" class="prodmain"></div>
+<h2 id="total"></h2>
+<button id="checkoutBtn">Proceed to Checkout</button>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("cartItems");
+    const totalEl = document.getElementById("total");
+    const checkoutBtn = document.getElementById("checkoutBtn");
+    
+    const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+    if (cart.length === 0) {
+        container.innerHTML = "<p>Your cart is empty.</p>";
+        totalEl.textContent = "";
+        checkoutBtn.style.display = "none";
+        return;
+    }
+
+    let total = 0;
+    container.innerHTML = "";
+    cart.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "ABTproduct";
+        div.innerHTML = `
+            <div class="ABTimage"><img src="${item.image}" width="100"></div>
+            <div class="ABTdetailsContainer">
+                <h2>${item.name}</h2>
+                <p>Price: Rs. ${item.price}</p>
+            </div>
+        `;
+        container.appendChild(div);
+        total += Number(item.price);
+    });
+
+    totalEl.textContent = "Total: Rs. " + total;
+
+    checkoutBtn.addEventListener("click", () => {
+        alert("Order placed successfully!");
+        localStorage.removeItem("cartItems");
+        window.location.href = "/";
+    });
+});
+</script>
+{% endblock %}

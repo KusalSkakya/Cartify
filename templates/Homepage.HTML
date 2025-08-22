@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+    
+    
+{% endblock %}
+
+
+{% block content %}
+    <div class="prodmain">
+        
+        {% for product in products %}
+        <a href="{{ url_for('product_controller.about') }}" class="productlink">
+             <div class="prodcontainer">
+                 <div class="imageContainer"> 
+                    <img src="{{ url_for('static', filename='image/products/' + product[4]) }}" width="200" height="220">
+                </div> 
+
+                <div class="discountContainer">
+                    {% if product[3] != 0 %}
+                        <span>{{ product[3] }}% OFF</span>
+                    {% endif %}
+                </div>
+
+                <div class="productName">  
+                    <span>{{ product[1] }}</span>
+                </div>
+
+                <div class="priceContainer">
+                   <span>Rs. {{ product[2] }}/-</span>
+                </div>
+            </div>
+        
+        </a>
+
+
+
+            
+       {% endfor %}
+
+{% endblock %}

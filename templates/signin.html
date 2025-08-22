@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+
+{% endblock %}
+
+{% block content %}
+<form class="signin-container" method="POST" action="{{ url_for('product_controller.signin') }}">
+    <div>
+        <h2>Sign in</h2>
+        <p>Create an Account</p>
+        
+        <label>Email:</label><br>
+        <input type="email" name="email"><br><br>
+
+        <label>Username:</label><br>
+        <input type="text" name="username"><br><br>
+
+        <label>Create Password:</label><br>
+        <input type="password" name="password"><br><br>
+
+        <label>Confirm Password:</label><br>
+        <input type="password" name="confirm_password"><br><br>
+
+        <button type="submit" name="submit">Sign in</button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>About Products</title>
+{% endblock %}
+
+{% block content %}
+<div class="aboutproduct">
+    {% for product in products %}
+    <div class="ABTproduct"
+         data-name="{{ product[1] }}"
+         data-price="{{ product[2] }}"
+         data-image="{{ url_for('static', filename='image/products/' + product[4]) }}">
+        
+        <div class="ABTimage">
+            <img src="{{ url_for('static', filename='image/products/' + product[4]) }}">
+        </div>
+
+        <div class="ABTdetailsContainer">
+            <h2 class="ABTproductName">{{ product[1] }}</h2>
+            <p class="ABTdescription">
+                {% if product[3] != 0 %}
+                    {{ product[3] }}% OFF
+                {% else %}
+                    No discount
+                {% endif %}
+            </p>
+            <div class="ABTprice">Rs. {{ product[2] }}/-</div>
+
+            <div class="ABTbuttonContainer">
+                <button type="button" class="ABTaddToCart js-add">Add to Cart</button>
+                <button type="button" class="ABTbuyNow js-buy">Buy Now</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+<form  class="login-container" method="POST" action="{{ url_for('product_controller.login') }}">
+    <div>
+        <h2>Login</h2>
+        <p>Please enter your Email and Password</p>
+
+        
+            <label>Username:</label><br>
+            <input type="text" name="username"><br><br>
+
+            <label>Password:</label><br>
+            <input type="password" name="password"><br><br>
+
+            <button type="submit">Log in</button>
+        
+        <p>Don't have an account? click here  <a href="{{ url_for('product_controller.signin') }}" style="text-decoration: none;">Sign in</a></p>
+    </div>
+</form>
+
+{% endblock %}
